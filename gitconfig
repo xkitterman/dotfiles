@@ -1,0 +1,16 @@
+[user]
+    name = Jordan Kitterman
+    email = xkitterman@gmail.com
+[alias]
+    ci = commit
+    st = status
+    br = branch
+    co = checkout
+    revert = checkout --
+    stage = add
+    unstage = reset HEAD
+[merge]
+    tool = vimdiff
+[core]
+    excludesfile = ~/.gitignore
+    editor = vim
