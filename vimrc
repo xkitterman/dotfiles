@@ -3,9 +3,13 @@ call minpac#init()
 
 " Plugins
 call minpac#add("morhetz/gruvbox")
-call minpac#add("kien/ctrlp.vim")
+call minpac#add("junegunn/fzf")
+call minpac#add("junegunn/fzf.vim")
+"set rtp+=/user/local/opt/fzf
 call minpac#add("Valloric/YouCompleteMe")
 call minpac#add("tpope/vim-fugitive")
+call minpac#add("leafgarland/typescript-vim")
+call minpac#add("itchyny/lightline.vim")
 
 " Hack to resolve the following warning upon vim startup:
 "   DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
@@ -110,6 +114,11 @@ let OmniCpp_MayCompleteScope = 1
 let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 
 set completeopt=menuone,menu,longest,preview
+
+if !exists("g:ycm_semantic_triggers")
+    let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers["typescript"] = ["."]
 
 command! Cpptags !ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .
 
