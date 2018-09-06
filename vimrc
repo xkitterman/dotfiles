@@ -2,14 +2,15 @@ packadd minpac
 call minpac#init()
 
 " Plugins
-call minpac#add("morhetz/gruvbox")
+call minpac#add("Valloric/YouCompleteMe")
+call minpac#add("itchyny/lightline.vim")
 call minpac#add("junegunn/fzf")
 call minpac#add("junegunn/fzf.vim")
-"set rtp+=/user/local/opt/fzf
-call minpac#add("Valloric/YouCompleteMe")
-call minpac#add("tpope/vim-fugitive")
 call minpac#add("leafgarland/typescript-vim")
-call minpac#add("itchyny/lightline.vim")
+call minpac#add("morhetz/gruvbox")
+call minpac#add("tpope/vim-fugitive")
+
+let mapleader="\<space>"
 
 " Hack to resolve the following warning upon vim startup:
 "   DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
@@ -30,8 +31,6 @@ set t_Co=256
 set background=dark
 let g:gruvbox_italic=0
 colorscheme gruvbox
-
-set exrc
 
 set number
 set ruler
@@ -103,6 +102,9 @@ nnoremap <leader>w :w<cr>
 nnoremap <leader>v :vsp $MYVIMRC<cr>
 nnoremap <leader>g :vsp $MYGVIMRC<cr>
 
+nnoremap <leader>f :Files<cr>
+nnoremap <leader>b :Buffers<cr>
+
 " omnicppcomplete
 let OmniCpp_NamespaceSearch = 1
 let OmniCpp_GlobalScopeSearch = 1
@@ -135,6 +137,20 @@ abbr becuase because
 abbr hte the
 abbr intial initial
 abbr manger manager
+
+let g:lightline = {
+            \ "colorscheme": "wombat",
+            \ "active": {
+            \   "left": [ [ "mode", "paste" ], [ "gitbranch", "readonly", "filename", "modified" ] ],
+            \   "right": [ [ "lineinfo" ], [ "percent" ], [ "fileformat", "fileencoding", "filetype", "charvaluehex" ] ]
+            \ },
+            \ "component_function": {
+            \   "gitbranch": "fugitive#head"
+            \ },
+            \ "component": {
+            \   "charvaluehex": "0x%02B"
+            \ },
+            \ }
 
 if has("unix")
    " vim settings specific to unix
