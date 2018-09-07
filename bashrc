@@ -13,13 +13,6 @@ function git_branch {
     git branch 2> /dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)/(\1)/"
 }
 
-bold="\e[1m"
-dim="\e[2m"
-underline="\e[4m"
-blink="\e[5m"
-invert="\e[7m"
-hidden="\e[8m"
-
 function reset {
     echo "\e[0m"
 }
@@ -64,9 +57,16 @@ function format {
 }
 
 function get_ps1 {
+    local bold="\e[1m"
+    local dim="\e[2m"
+    local underline="\e[4m"
+    local blink="\e[5m"
+    local invert="\e[7m"
+    local hidden="\e[8m"
+
     local header=$(format " ---\n|" $(color $Color256_Orange1) $bold)
     local working_dir=$(format " \w" $(color $Color256_SteelBlue) $bold)
-    local git_branch=$(format "\$(git_branch)" $(color $Color256_Orange1))
+    local git_branch=$(format "\$(git_branch)" $(color $Color256_Grey))
     local prompt=$(format " ->" $(color $Color256_Orange1) $bold)
 
     echo "${header}${working_dir} ${git_branch}\n${prompt} "
@@ -87,17 +87,17 @@ function get_ls_colors {
     local bold_black=A
     local bold_red=B
 
-    local dir=$green$default
+    local dir=$cyan$default
     local sym_link=$brown$default
-    local socket=$cyan$default
+    local socket=$green$default
     local pipe=$magenta$default
     local exe=$red$default
     local blck_special=$default$default
     local char_special=$default$default
     local exec_uid=$red$default
     local exec_gid=$red$default
-    local dir_sticky=$green$default
-    local dir_nonsticky=$green$default
+    local dir_sticky=$cyan$default
+    local dir_nonsticky=$cyan$default
 
     echo "$dir$sym_link$socket$pipe$exe$blck_special$char_special$exec_uid$exec_gid$dir_sticky$dir_nonsticky"
 }
