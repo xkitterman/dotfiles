@@ -63,10 +63,44 @@ function format {
     echo "${text}\e[0m"
 }
 
-header=$(format " ---\n|" $(color $Color256_Orange1) $bold)
-working_dir=$(format " \w" $(color $Color256_SteelBlue) $bold)
-git_branch=$(format "\$(git_branch)" $(color $Color256_Orange1))
-prompt=$(format " ->" $(color $Color256_Orange1) $bold)
+function get_ps1 {
+    local header=$(format " ---\n|" $(color $Color256_Orange1) $bold)
+    local working_dir=$(format " \w" $(color $Color256_SteelBlue) $bold)
+    local git_branch=$(format "\$(git_branch)" $(color $Color256_Orange1))
+    local prompt=$(format " ->" $(color $Color256_Orange1) $bold)
 
-export PS1="${header}${working_dir} ${git_branch}\n${prompt} "
+    echo "${header}${working_dir} ${git_branch}\n${prompt} "
+}
 
+export PS1=$(get_ps1)
+
+function get_ls_colors {
+    local default=x
+    local black=a
+    local red=b
+    local green=c
+    local brown=d
+    local blue=e
+    local magenta=f
+    local cyan=g
+    local light_grey=h
+    local bold_black=A
+    local bold_red=B
+
+    local dir=$green$default
+    local sym_link=$brown$default
+    local socket=$cyan$default
+    local pipe=$magenta$default
+    local exe=$red$default
+    local blck_special=$default$default
+    local char_special=$default$default
+    local exec_uid=$red$default
+    local exec_gid=$red$default
+    local dir_sticky=$green$default
+    local dir_nonsticky=$green$default
+
+    echo "$dir$sym_link$socket$pipe$exe$blck_special$char_special$exec_uid$exec_gid$dir_sticky$dir_nonsticky"
+}
+
+export CLICOLOR=1
+export LSCOLORS=$(get_ls_colors)

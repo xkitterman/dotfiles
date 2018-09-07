@@ -1,3 +1,3 @@
-alias ls="ls -hal"
+alias ls="ls -Gahlp"
 alias ..="cd .."
 alias bzl="bazel"
