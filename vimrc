@@ -73,6 +73,7 @@ if has("autocmd")
    autocmd filetype java setlocal omnifunc=javacomplete#Complete
    autocmd filetype java setlocal completefunc=javacomplete#CompleteParamsInfo
    autocmd filetype javascript setlocal ts=2 sts=2 sw=2
+   autocmd filetype typescript setlocal ts=2 sts=2 sw=2
    autocmd filetype *.cpp,*.hpp,*.cxx setlocal omnifunc=omni#cpp#complete#Main
 endif
 

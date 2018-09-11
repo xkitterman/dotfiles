@@ -9,8 +9,11 @@ files = [
     "gitconfig",
     "gitignore",
     "gvimrc",
+    "inputrc",
+    "tmux.conf",
     "vim",
     "vimrc",
+    "zshrc",
 ]
 
 homedir = os.path.expanduser("~")

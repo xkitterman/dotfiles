@@ -8,6 +8,9 @@ then
     source ~/.bash_colors
 fi
 
+#set -o vi
+#set show-mode-in-prompt on
+
 # Terminal prompt configuration
 function git_branch {
     git branch 2> /dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)/(\1)/"
