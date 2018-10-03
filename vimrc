@@ -74,6 +74,7 @@ if has("autocmd")
    autocmd filetype java setlocal completefunc=javacomplete#CompleteParamsInfo
    autocmd filetype javascript setlocal ts=2 sts=2 sw=2
    autocmd filetype typescript setlocal ts=2 sts=2 sw=2
+   autocmd filetype *.css setlocal ts=2 sts=2 sw=2
    autocmd filetype *.cpp,*.hpp,*.cxx setlocal omnifunc=omni#cpp#complete#Main
 endif
 
@@ -122,6 +123,8 @@ if !exists("g:ycm_semantic_triggers")
     let g:ycm_semantic_triggers = {}
 endif
 let g:ycm_semantic_triggers["typescript"] = ["."]
+
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 command! Cpptags !ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .
 
