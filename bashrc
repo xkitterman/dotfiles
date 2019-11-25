@@ -107,3 +107,5 @@ function get_ls_colors {
 
 export CLICOLOR=1
 export LSCOLORS=$(get_ls_colors)
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
