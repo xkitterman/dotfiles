@@ -7,7 +7,7 @@ call minpac#add("itchyny/lightline.vim")
 call minpac#add("junegunn/fzf")
 call minpac#add("junegunn/fzf.vim")
 call minpac#add("leafgarland/typescript-vim")
-call minpac#add("morhetz/gruvbox")
+call minpac#add("altercation/vim-colors-solarized")
 call minpac#add("tpope/vim-fugitive")
 
 let mapleader="\<space>"
@@ -28,9 +28,9 @@ let g:netrw_preview=1
 
 " terminal colorscheme
 set t_Co=256
-set background=dark
-let g:gruvbox_italic=0
-colorscheme gruvbox
+set background=light
+let g:solarized_termcolors=256
+colorscheme solarized
 
 set number
 set ruler
